@@ -121,69 +121,71 @@ header {
   }
 }
 
-.btn:link,
-.btn:visited {
-  text-decoration: none;
-  text-transform: uppercase;
-  display: inline-block;
-  border-radius: 3rem;
-  padding: 1.5rem 4rem;
-  transition: all 0.2s;
-  position: relative;
-  font-size: 1.6rem;
-}
-
-.btn-white {
-  background-color: $color-white;
-  color: $color-grey-dark;
-  font-size: 1.8rem;
-  font-weight: 400;
-  letter-spacing: 0.2rem;
-}
-
-@keyframes moveTop {
-  0% {
-    opacity: 0;
-    transform: translateY(2rem);
+.btn {
+  &:link,
+  &:visited {
+    text-decoration: none;
+    text-transform: uppercase;
+    display: inline-block;
+    border-radius: 3rem;
+    padding: 1.5rem 4rem;
+    transition: all 0.2s;
+    position: relative;
+    font-size: 1.6rem;
   }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
+
+  &-white {
+    background-color: $color-white;
+    color: $color-grey-dark;
+    font-size: 1.8rem;
+    font-weight: 400;
+    letter-spacing: 0.2rem;
+
+    &::after {
+      background-color: $color-white;
+    }
   }
-}
 
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 1rem 2rem rgba(41, 40, 40, 0.76);
-}
-.btn:active {
-  transform: translateY(-1px);
-  box-shadow: 0 0.5rem 1rem rgba(41, 40, 40, 0.829);
-}
+  @keyframes moveTop {
+    0% {
+      opacity: 0;
+      transform: translateY(2rem);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 
-.btn:after {
-  content: "";
-  display: inline-block;
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  border-radius: 3rem;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  transition: all 0.4s;
-}
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 1rem 2rem rgba(41, 40, 40, 0.76);
 
-.btn-white::after {
-  background-color: $color-white;
-}
+    &::after {
+      transform: scale(1.5);
+      opacity: 0;
+    }
+  }
+  &:active {
+    transform: translateY(-1px);
+    box-shadow: 0 0.5rem 1rem rgba(41, 40, 40, 0.829);
+  }
 
-.btn:hover::after {
-  transform: scale(1.5);
-  opacity: 0;
-}
+  &:after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 3rem;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
+  }
 
-.btn-animated {
-  animation: moveTop 1s ease-out 0.75s;
-  animation-fill-mode: backwards;
+  &-animated {
+    animation: moveTop 1s ease-out 0.75s;
+    animation-fill-mode: backwards;
+  }
 }

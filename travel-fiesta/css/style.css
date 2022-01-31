@@ -90,8 +90,7 @@ header {
     opacity: 1;
     transform: translate(0); } }
 
-.btn:link,
-.btn:visited {
+.btn:link, .btn:visited {
   text-decoration: none;
   text-transform: uppercase;
   display: inline-block;
@@ -107,6 +106,8 @@ header {
   font-size: 1.8rem;
   font-weight: 400;
   letter-spacing: 0.2rem; }
+  .btn-white::after {
+    background-color: #fff; }
 
 @keyframes moveTop {
   0% {
@@ -119,6 +120,9 @@ header {
 .btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 1rem 2rem rgba(41, 40, 40, 0.76); }
+  .btn:hover::after {
+    transform: scale(1.5);
+    opacity: 0; }
 
 .btn:active {
   transform: translateY(-1px);
@@ -135,13 +139,6 @@ header {
   left: 0;
   z-index: -1;
   transition: all 0.4s; }
-
-.btn-white::after {
-  background-color: #fff; }
-
-.btn:hover::after {
-  transform: scale(1.5);
-  opacity: 0; }
 
 .btn-animated {
   animation: moveTop 1s ease-out 0.75s;
